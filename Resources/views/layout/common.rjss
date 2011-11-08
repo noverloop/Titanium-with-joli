@@ -1,0 +1,11 @@
+Window {
+    backgroundColor: '#fff'
+}
+
+#Home {
+	title: 'Home'
+}
+
+#Account {
+	title: 'Account'
+}
