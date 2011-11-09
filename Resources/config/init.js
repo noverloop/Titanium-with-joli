@@ -16,7 +16,6 @@ for(var i = 0;  i < files.length; i++) {
 }
 
 // load database config
-
 Ti.include("database.js");
 
 
@@ -29,9 +28,17 @@ for(var i = 0;  i < files.length; i++) {
 		Ti.include("../" + model_dir + files[i]);
 }
 
+// Load routes
+Ti.include("config/routes.js");
+
+// Load router
+Ti.include("lib/routes.js");
+
+// Load tab config
+Ti.include("lib/tabgroups.js")
 
 Ti.App.start = function init() {
-  inc('views/layout/tabgroup.js');
+  
   // open tab group
   Ti.App.tabGroup.open();
 };

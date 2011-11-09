@@ -5,7 +5,7 @@ var tabs = [
 	    route: '.home'
 	},
 	{  
-	    icon:'KS_nav_views.png',
+	    icon:'KS_nav_ui.png',
 	    title:'Account',
 	    route: '.account'
 	},
