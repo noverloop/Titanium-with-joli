@@ -28,11 +28,20 @@ for(var i = 0;  i < files.length; i++) {
 		Ti.include("../" + model_dir + files[i]);
 }
 
+// load view factory methods
+Ti.App.views = {};
+var views_dir = "views/"
+var dfo = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory + views_dir);
+var files = dfo.getDirectoryListing();
+for(var i = 0;  i < files.length; i++) {
+		Ti.include("../" + views_dir + files[i]);
+}
+
 // Load routes
 Ti.include("config/routes.js");
 
 // Load router
-Ti.include("lib/routes.js");
+Ti.include("lib/router.js");
 
 // Load tab config
 Ti.include("lib/tabgroups.js")

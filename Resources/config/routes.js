@@ -8,8 +8,21 @@
  * Alright, routes is going to be a misnomer for this one.
  * Basically we want a route to lead to a view in Ti.App.views (or rather to its generating function) and we want to include a controller which will be loaded with the URL parameter
  * The router needs to instantiate the correct model and attach it to the window
+
  */
 
 var routes = {
-	
+   "Account/{id}": {
+       "view" : "createAccountShow",
+       "model": "Account",
+       "action": "Show",
+       "controller": "AccountShow",
+       "id": "{id}"
+  }
+
+  "Home": {
+       "view": "createHomeIndex",
+       "model": "Home",
+       "action": "index",
+  }  
 }
