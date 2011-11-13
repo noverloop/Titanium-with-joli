@@ -11,7 +11,7 @@
      */
     for(i=0;i<tabs.length;i++) {
     	tc = tabs[i];
-    	win = v.route(tc.route);
+    	win = Ti.App.views[tc.view]);
     	tc.window = win;
     	tabs[i] = Titanium.UI.createTab(tc);
     }

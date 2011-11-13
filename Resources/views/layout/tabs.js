@@ -2,16 +2,17 @@ var tabs = [
 	{  
 	    icon:'KS_nav_views.png',
 	    title:'Home',
-	    route: '.home'
+	    view: 'createHomeIndex'
 	},
 	{  
 	    icon:'KS_nav_ui.png',
 	    title:'Account',
-	    route: '.account'
+	    view: 'createAccount'
 	},
 	{  
 	    icon:'KS_nav_views.png',
 	    title:'First Account',
-	    route: '.account.1'
+	    view: 'createAccountShow',
+            params:{ 'id': '300'}
 	}
 ];

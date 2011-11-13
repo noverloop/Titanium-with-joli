@@ -1,0 +1,6 @@
+- modify joli to fire changeEvent when changes happen
+- figure out best way to implement routing
+- figure out if the url-parameter is any good
+- figure out how to attach eventhandlers to interface elements
+- test joli
+
