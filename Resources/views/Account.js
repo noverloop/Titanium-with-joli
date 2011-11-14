@@ -1,20 +1,101 @@
-(function($) {
-	//
-	// create base UI tab and root window
-	//
-	$.createAccountIndex = function() {
-	        var args = redux.fn.style('Window', { id: 'Home' });
-		var win1 = Titanium.UI.createWindow(args);
+
+views['Accounts'] = function(params) {
+	    var args = redux.fn.style('Window', { id: 'Account' });
+		var win = Titanium.UI.createWindow(args);
+		win.addEventListener("focus", function() {
+			var data = [];
+			var accounts = Ti.App.models.accounts.all();
+			for(i=0;i<accounts.length;i++) {
+				lrow = Titanium.UI.createTableViewRow();
+				lifetimeLabel = Titanium.UI.createLabel({
+					text: "" + accounts[i].firstName,
+					font: {fontSize:16,fontWeight:'bold'},
+					color:'#888',
+					width: 200,
+					textAlign:'left',
+					left:30
+				});
+				lrow.origin = accounts[i];
+				lrow.hasChild=true;
+				lrow.add(lifetimeLabel);
+				lrow.addEventListener('click',function(e){
+					Ti.App.tabGroup.activeTab.open(Ti.App.views['AccountShow']({ 'id': e.rowData.origin.id}),{
+						animated : true
+					});
+				})
+				data.push(lrow);
+			}
+			// populate tableview from database
+			tv = Titanium.UI.createTableView({
+				data: data
+			});
+			win.add(tv);
+		});
+		return win;
+};
+
+//
+// create base UI tab and root window
+//
+views['AccountShow'] = function(params) {
+	    var args = redux.fn.style('Window', { className: 'Account' });
+
+		var win = Titanium.UI.createWindow(args);
 	
 		var label1 = Titanium.UI.createLabel({
 			color:'#999',
-			text:'I am Window 1',
+			text:'I am Window 3 with id:' + params['id'],
 			font:{fontSize:20,fontFamily:'Helvetica Neue'},
 			textAlign:'center',
 			width:'auto'
 		});
 		
-		win1.add(label1);
-		return win1;
-	}
-}(Ti.App.Views))
+		win.add(label1);
+		return win;
+};
+
+//
+// create base UI tab and root window
+//
+views['AccountNew'] = function(params) {
+	    var args = redux.fn.style('Window', { id:'NewAccount', className: 'Account' });
+
+		var win = Titanium.UI.createWindow(args);
+		var label1 = Titanium.UI.createLabel({
+			color:'#999',
+			text:'FirstName:',
+			font:{fontSize:20,fontFamily:'Helvetica Neue'},
+			textAlign:'center',
+			top:-100,
+			width:'auto'
+		});
+		var fnTextField = Ti.UI.createTextField({
+			width:'50%', 
+			top : 150, 
+			height:"5%", 
+			backgroundColor: "#eee",
+		    keyboardType:Ti.UI.KEYBOARD_DEFAULT,
+		});
+		
+		var fnButton = Ti.UI.createButton({
+			title: "Create",
+			height: 44,
+			top: 300
+		});
+		
+		win.addEventListener("open", function() {
+			Ti.API.debug("tabGroup: " + Ti.App.tabGroup.activeTab);
+		    fnButton.addEventListener('click', function(e) {
+				m = Ti.App.models.accounts.newRecord({firstName: fnTextField.value });
+				m.save();
+				Ti.App.tabGroup.setActiveTab(1);
+			});
+		});
+		
+		win.add(label1);
+		win.add(fnTextField);
+		win.add(fnButton);
+		return win;
+};
+
+

@@ -1,5 +1,5 @@
 
-Ti.App.models.accounts = new joli.model({
+models.accounts = new joli.model({
 		table : 'Accounts',
 		columns : {
 			id : 'INTEGER PRIMARY KEY AUTOINCREMENT',

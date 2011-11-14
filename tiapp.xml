@@ -3,15 +3,15 @@
     <deployment-targets>
         <target device="mobileweb">false</target>
         <target device="iphone">true</target>
-        <target device="ipad">true</target>
+        <target device="ipad">false</target>
         <target device="android">true</target>
         <target device="blackberry">false</target>
     </deployment-targets>
-    <id>model1</id>
+    <id>com.noverloop.mvc</id>
     <name>com.couchcontrol.model1</name>
     <version>1.0</version>
     <publisher>nicolasoverloop</publisher>
-    <url>http://</url>
+    <url>http://couchcontrol.com</url>
     <description>not specified</description>
     <copyright>2011 by nicolasoverloop</copyright>
     <icon>appicon.png</icon>

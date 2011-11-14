@@ -8,43 +8,34 @@
  */
 
 // load includes
-var include_dir = "includes/"
-var dfo = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory + include_dir);
-var files = dfo.getDirectoryListing();
-for(var i = 0;  i < files.length; i++) {
-		Ti.include("../" + include_dir + files[i]);
-}
+// Simple problem: Titanium does not include files which are not referenced.
+// Unless I can disable this behaviour, the existing approach yields no benefits on top of what is out there.
+
+var include_dir = "includes/";
+Ti.include("/includes/redux.js");
+inc("/includes/joli.js");
+includeRJSSGlobal("/views/layout/common.rjss");
 
 // load database config
 Ti.include("database.js");
 
 
 // load models
-Ti.App.models = {};
-var model_dir = "models/"
-var dfo = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory + model_dir);
-var files = dfo.getDirectoryListing();
-for(var i = 0;  i < files.length; i++) {
-		Ti.include("../" + model_dir + files[i]);
-}
+var models = {};
+inc("/models/account.js");
+
+Ti.App.models = models;
+// models have been setup. initialize the database
+joli.models.initialize();
+
 
 // load view factory methods
-Ti.App.views = {};
-var views_dir = "views/"
-var dfo = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory + views_dir);
-var files = dfo.getDirectoryListing();
-for(var i = 0;  i < files.length; i++) {
-		Ti.include("../" + views_dir + files[i]);
-}
-
-// Load routes
-Ti.include("config/routes.js");
-
-// Load router
-Ti.include("lib/router.js");
-
+var views = {};
+inc("/views/Account.js");
+inc("/views/Home.js");
+Ti.App.views = views;
 // Load tab config
-Ti.include("lib/tabgroups.js")
+inc("/lib/tabgroup.js");
 
 Ti.App.start = function init() {
   

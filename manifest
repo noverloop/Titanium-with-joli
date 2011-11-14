@@ -1,8 +1,8 @@
-#appname: com.couchcontrol.model1
-#publisher: nicolasoverloop
-#url: http://
-#image: appicon.png
-#appid: model1
-#desc: undefined
-#type: ipad
-#guid: 8e2f2164-35a9-479c-afce-ce4b9275baf9
+#appname:com.couchcontrol.model1
+#publisher:nicolasoverloop
+#url:http://couchcontrol.com
+#image:appicon.png
+#appid:com.noverloop.mvc
+#desc:not specified
+#type:mobile
+#guid:8e2f2164-35a9-479c-afce-ce4b9275baf9

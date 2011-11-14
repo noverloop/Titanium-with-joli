@@ -7,10 +7,10 @@
 #define _QUOTEME(x) #x
 #define STRING(x) _QUOTEME(x)
 
-NSString * const TI_APPLICATION_DEPLOYTYPE = @"development";
-NSString * const TI_APPLICATION_ID = @"model1";
+NSString * const TI_APPLICATION_DEPLOYTYPE = @"test";
+NSString * const TI_APPLICATION_ID = @"com.noverloop.mvc";
 NSString * const TI_APPLICATION_PUBLISHER = @"nicolasoverloop";
-NSString * const TI_APPLICATION_URL = @"http://";
+NSString * const TI_APPLICATION_URL = @"http://couchcontrol.com";
 NSString * const TI_APPLICATION_NAME = @"com.couchcontrol.model1";
 NSString * const TI_APPLICATION_VERSION = @"1.0";
 NSString * const TI_APPLICATION_DESCRIPTION = @"not specified";
@@ -19,7 +19,7 @@ NSString * const TI_APPLICATION_GUID = @"8e2f2164-35a9-479c-afce-ce4b9275baf9";
 BOOL const TI_APPLICATION_ANALYTICS = true;
 
 #ifdef TARGET_IPHONE_SIMULATOR
-NSString * const TI_APPLICATION_RESOURCE_DIR = @"/Users/nicolasoverloop/Developer/Titanium Workspace/com.couchcontrol.model1/Resources";
+NSString * const TI_APPLICATION_RESOURCE_DIR = @"";
 #endif
 
 int main(int argc, char *argv[]) {

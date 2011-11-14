@@ -1,26 +1,22 @@
-(function(v) {
-    // Create the 'Home' object if it doesn't already exist
-    if(!v.tabGroup) {
-        v.tabGroup = Titanium.UI.createTabGroup();
-    }
- 
-    Ti.include("views/layouts/tabs.js");
-    
-    /*
-     * tabs variable contains
-     */
-    for(i=0;i<tabs.length;i++) {
-    	tc = tabs[i];
-    	win = Ti.App.views[tc.view]);
-    	tc.window = win;
-    	tabs[i] = Titanium.UI.createTab(tc);
-    }
-    
-    v.tabGroup.tabs = tabs;
-    
-    
-	
 
-	
-	
-}(Ti.App));
+
+// Create the 'Home' object if it doesn't already exist
+if(!Ti.App.tabGroup) {
+    Ti.App.tabGroup = Titanium.UI.createTabGroup();
+}
+
+Ti.include("/views/layout/tabs.js");
+
+/*
+ * tabs variable contains
+ */
+var nTabs = [];
+for(i=0;i<tabs.length;i++) {
+	tc = tabs[i];
+	win = views[tc.view](tc.params);
+	tc.window = win;
+	delete tc.params;
+	delete tc.view; 
+	Ti.App.tabGroup.addTab(Titanium.UI.createTab(tc));
+}
+
