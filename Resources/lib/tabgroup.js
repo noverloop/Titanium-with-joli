@@ -5,7 +5,7 @@ if(!Ti.App.tabGroup) {
     Ti.App.tabGroup = Titanium.UI.createTabGroup();
 }
 
-Ti.include("/views/layout/tabs.js");
+Ti.include("/config/tabs.js");
 
 /*
  * tabs variable contains

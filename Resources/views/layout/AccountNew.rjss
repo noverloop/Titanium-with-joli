@@ -1,0 +1,22 @@
+#firstName {
+			color:'#999',
+			text:'FirstName:',
+			font:{fontSize:20,fontFamily:'Helvetica Neue'},
+			textAlign:'center',
+			top:-100,
+			width:'auto'
+}
+
+ #firstNameField {
+			width:'50%', 
+			top : 150, 
+			height:"5%", 
+			backgroundColor: "#eee",
+		    keyboardType:Ti.UI.KEYBOARD_DEFAULT,
+}
+
+#createButton {
+			title: "Create",
+			height: 44,
+			top: 300
+}

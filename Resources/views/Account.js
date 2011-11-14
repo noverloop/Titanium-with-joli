@@ -58,30 +58,13 @@ views['AccountShow'] = function(params) {
 // create base UI tab and root window
 //
 views['AccountNew'] = function(params) {
+	    includeRJSS("/views/layout/AccountNew.rjss");
 	    var args = redux.fn.style('Window', { id:'NewAccount', className: 'Account' });
-
 		var win = Titanium.UI.createWindow(args);
-		var label1 = Titanium.UI.createLabel({
-			color:'#999',
-			text:'FirstName:',
-			font:{fontSize:20,fontFamily:'Helvetica Neue'},
-			textAlign:'center',
-			top:-100,
-			width:'auto'
-		});
-		var fnTextField = Ti.UI.createTextField({
-			width:'50%', 
-			top : 150, 
-			height:"5%", 
-			backgroundColor: "#eee",
-		    keyboardType:Ti.UI.KEYBOARD_DEFAULT,
-		});
+		var label1 = new Label({id: "firstName"});
+		var fnTextField = new TextField({id: "firstNameField"});
 		
-		var fnButton = Ti.UI.createButton({
-			title: "Create",
-			height: 44,
-			top: 300
-		});
+		var fnButton = new Button({ id: "createButton"});
 		
 		win.addEventListener("open", function() {
 			Ti.API.debug("tabGroup: " + Ti.App.tabGroup.activeTab);
